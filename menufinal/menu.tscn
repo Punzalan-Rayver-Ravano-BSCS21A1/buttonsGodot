@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg5xo2j07v1pj"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_35pp8"]
+[ext_resource type="Texture2D" uid="uid://oj183umdkcya" path="res://buttonsPng/settings-removebg-preview.png" id="2_f0mer"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbghm"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a5wd6"]
+bg_color = Color(0.666667, 0.666667, 0.666667, 1)
+border_width_left = 6
+border_width_bottom = 9
+border_color = Color(0.051971, 0.051971, 0.0519709, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Theme" id="Theme_8hpem"]
+Button/styles/hover = SubResource("StyleBoxFlat_mbghm")
+Button/styles/normal = SubResource("StyleBoxFlat_a5wd6")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = -36.0
+offset_right = 66.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_35pp8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -252.0
+offset_right = 66.0
+offset_bottom = -153.0
+grow_vertical = 2
+
+[node name="settingsButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8hpem")
+icon = ExtResource("2_f0mer")
+
+[connection signal="pressed" from="MarginContainer/settingsButton" to="." method="_on_settings_button_pressed"]
